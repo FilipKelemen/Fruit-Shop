@@ -1,0 +1,174 @@
+<form [formGroup]="addressForm">
+  
+<mat-grid-list rowHeight="5em" [cols]="breakpoint" (window:resize)="onResize($event)"> <!--First Name-->
+  <mat-grid-tile>
+    <input type="hidden" formControlName="$key">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input type="text" formControlName="firstName" placeholder="Your First Name" matInput>
+      <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')
+                         && addressForm.controls['lastName'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+      <mat-icon [ngClass]="{
+                        'invalid': addressForm.controls['firstName'].hasError('required'),
+                        'valid': !addressForm.controls['firstName'].hasError('required')
+                }"
+                matSuffix>
+       person
+      </mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--Last Name-->
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input type="text" formControlName="lastName" placeholder="Your Last Name" matInput>
+      <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')
+                        && addressForm.controls['lastName'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+      <mat-icon [ngClass]="{
+                  'invalid': addressForm.controls['lastName'].hasError('required'),
+                  'valid': !addressForm.controls['lastName'].hasError('required')
+                }"
+            matSuffix>
+                person
+      </mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--E-mail-->
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input type="email" formControlName="email" placeholder="Your E-mail" matInput>
+      <mat-error *ngIf="addressForm.controls['email'].hasError('required')
+                  && addressForm.controls['email'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+      <mat-error *ngIf="addressForm.controls['email'].dirty 
+                        && addressForm.controls['email'].invalid 
+                        && !addressForm.controls['email'].hasError('required')">
+        Looks like the E-mail is not valid
+      </mat-error>
+      <mat-icon  class="material-icons-round"
+                [ngClass]="{
+                        'invalid': addressForm.controls['email'].hasError('email') 
+                                         || addressForm.controls['email'].hasError('required'),
+                        'valid': !(addressForm.controls['email'].hasError('email')
+                                        || addressForm.controls['email'].hasError('required'))
+                }"
+                matSuffix>
+            alternate_email
+      </mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile class="justify-content-around"> <!--Phone-->
+    <!-- <mat-form-field appearance="fill" id="phone-number-country">
+      <mat-label>Phone Number</mat-label>
+      <mat-select formControlName="phoneNumberCountry">
+        <mat-option value="+40">Romania (+40)</mat-option>
+        <mat-option value="+00">Some Other Country Prefix (+00)</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <mat-form-field appearance="fill" id="phone-number">
+      <mat-label>Phone Number</mat-label>
+      <input type="tel" formControlName="phoneNumber" placeholder="Your Phone Number" matInput>
+      <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('required')
+                  && addressForm.controls['phoneNumber'].touched">
+        Oops! {{errorText}}
+      </mat-error> 
+      <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('pattern')
+                  && addressForm.controls['phoneNumber'].touched">
+        We expect a number from Romania
+      </mat-error>
+      <mat-icon  class="material-icons-round"
+                [ngClass]="{
+                        'invalid': addressForm.controls['phoneNumber'].hasError('pattern') 
+                                         || addressForm.controls['phoneNumber'].hasError('required'),
+                        'valid': !(addressForm.controls['phoneNumber'].hasError('pattern')
+                                        || addressForm.controls['phoneNumber'].hasError('required'))
+                }"
+                matSuffix>
+            phone_iphone
+      </mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--Complete Street-->
+    <mat-form-field appearance="fill">
+      <mat-label>Street</mat-label>
+      <input type="text" formControlName="completeStreet" placeholder="Your Street (Example: Str. Applepie, no. 4, blc. 2, entr. C, ap. 2) " matInput>
+      <mat-error *ngIf="addressForm.controls['completeStreet'].hasError('required')
+                  && addressForm.controls['completeStreet'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+      <mat-icon [ngClass]="{
+                  'invalid': addressForm.controls['completeStreet'].hasError('required'),
+                  'valid': !addressForm.controls['completeStreet'].hasError('required')
+                }"
+            matSuffix>
+                add_road
+      </mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--Country-->
+    <mat-form-field appearance="fill" (click)="getAllCountriesWithFlags()">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+        <ng-container *ngIf="countries$ | async as countries; else stillLoadingBlock">
+          <mat-option
+              *ngFor ="let country of countries.data"
+              value="country.name">            
+            <app-country-selection-item [countryItem] = "country"></app-country-selection-item>      
+          </mat-option>
+        </ng-container>
+        <ng-template #stillLoadingBlock >
+          aaaaa
+        </ng-template>
+      </mat-select>
+      <mat-error *ngIf="addressForm.controls['country'].hasError('required')
+                  && addressForm.controls['country'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--County-->
+    <mat-form-field appearance="fill">
+      <mat-label>County</mat-label>
+      <mat-select formControlName="county">
+        <mat-option value="Romania">
+          Romania
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addressForm.controls['county'].hasError('required')
+                  && addressForm.controls['lastName'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--City-->
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <mat-select formControlName="city">
+        <mat-option value="Timisoara">
+          Timisoara
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addressForm.controls['city'].hasError('required')
+                  && addressForm.controls['lastName'].touched">
+        Oops! {{errorText}}
+      </mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--Postal Code-->
+    <mat-form-field appearance="fill">
+      <mat-label>Postal Code</mat-label>
+      <input type="number" matInput formControlName="postalCode" placeholder="Your Postal Code (Ex: 123 456)">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile> <!--Company-->
+    <mat-form-field appearance="fill">
+      <mat-label>Company (optional)</mat-label>
+      <input type="text" formControlName="company" placeholder="Your Company" matInput>
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
+</form>

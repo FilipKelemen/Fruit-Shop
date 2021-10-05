@@ -1,0 +1,25 @@
+
+<div class="d-flex justify-content-between align-items-center">
+  <h4>Billing Address</h4>
+  <button mat-raised-button type="button" (click)="changingBillingAddressAction()">Change</button>
+</div>
+<div id="container" class="row">
+  <div class="col-sm-12 col-md-6 d-flex flex-column o-hidden">
+    <div class="billing-address-values">First Name: {{billingAddressForm.get('firstName')!.value}}</div>
+    <div class="billing-address-values">Last Name: {{billingAddressForm.get('lastName')!.value}}</div>
+    <div class="billing-address-values">E-mail: {{billingAddressForm.get('email')!.value}}</div>
+    <div class="billing-address-values">Phone Number: {{billingAddressForm.get('phoneNumber')!.value}}</div>
+    <div class="billing-address-values">Address: {{billingAddressForm.get('completeStreet')!.value}}</div>
+  </div>
+  <div class="col-sm-12 col-md-6 d-flex flex-column o-hidden">
+    <div class="billing-address-values">Country: {{billingAddressForm.get('country')!.value}}</div>
+    <div class="billing-address-values">County: {{billingAddressForm.get('county')!.value}}</div>
+    <div class="billing-address-values">City: {{billingAddressForm.get('city')!.value}}</div>
+    <div class="billing-address-values">Postal Code: {{billingAddressForm.get('postalCode')!.value}}</div>
+    <div class="billing-address-values">Company: {{billingAddressForm.get('company')!.value}}</div>
+  </div>
+  <!-- <button type="button" (click)="debugging()">Debug</button> -->
+</div>
+<ng-container *ngIf="changingBillingAddress">
+  <app-address-form [addressFormType]="addressType"></app-address-form>
+</ng-container>

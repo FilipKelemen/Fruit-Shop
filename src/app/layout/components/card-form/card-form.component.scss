@@ -1,0 +1,13 @@
+.expiration-date{
+  mat-icon{
+    color:gray;
+  }
+  mat-form-field{
+    //changing the padding so te border looks nice
+        &::ng-deep{
+        .mat-form-field-flex{
+          padding-left: 0.3em;
+        }
+      }
+    }
+}

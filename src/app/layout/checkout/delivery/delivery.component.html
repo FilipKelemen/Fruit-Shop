@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]= "deliveryForm" class="d-flex flex-column align-items-start">
+      <input type="hidden" formControlName="$key">
+      <h1>Country</h1>
+        <mat-form-field appearance="outline">
+          <mat-label>Your Country</mat-label>
+         <mat-select formControlName="countryToBeDelivered" placeholder="Country*">
+            <mat-option value="Romania">Romania</mat-option>
+            <mat-option value="2">Another Country</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <h1>Delivery</h1>
+      <mat-radio-group formControlName="deliveryServiceId" class="d-flex flex-column align-items-start">
+        <mat-radio-button value="9ba6109a-7728-4103-a1a1-6ae180d1b3e5">Fan Courier</mat-radio-button>
+        <mat-radio-button value="17f743dd-7cad-454a-b23f-2473a1ecdc0c">Cargus</mat-radio-button>
+        <mat-radio-button value="6851adaa-b42c-43a6-b9c5-c65e01bc708e">DHL</mat-radio-button>
+      </mat-radio-group>
+  </form>
+</div>

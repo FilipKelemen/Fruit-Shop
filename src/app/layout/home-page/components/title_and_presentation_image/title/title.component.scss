@@ -1,0 +1,23 @@
+
+h1,h2{
+  color:white;
+  padding-left: 10%;
+}
+h1{
+  font-family: pluto;
+  line-height: 0.9;
+  font-size:1em;
+  &#motto-header{
+    padding-top:0.25em;
+  }
+}
+h2{
+  font-size: 0.25em;
+  &#certification-header{
+    padding-top: 3.5em;
+  }
+  &#promise-header{
+    padding-top: 1em;
+  }
+}
+

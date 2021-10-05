@@ -1,0 +1,36 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family:sans-serif;
+}
+app-cart-container{
+  margin-top: calc(10rem - 1vh);
+}
+#wrapper-for-font-size{
+  font-size: calc(60px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));
+}
+.row{
+  margin-top:0;
+  margin-left:0;
+  margin-right:0;
+  padding-left: 0;
+  padding-right:0;
+}
+h5{
+  color: rgb(102, 102, 102);
+}
+#purchase-button{
+  background-color: rgb(233, 211, 214);
+  color:white;
+  font-size:calc(2rem + 1.2vw);
+  border: 0.2rem solid white;
+  border-radius: 0.2rem;
+  margin-top: calc(5rem + 1vh);
+  transition:color 0.3s ease-in-out;
+  transition:background-color 0.3s ease-in-out;
+  &:hover{
+    background-color: white;
+    color:rgb(233, 211, 214);
+  }
+}

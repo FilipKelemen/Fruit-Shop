@@ -1,0 +1,43 @@
+@import '../../../styles.scss';
+.show
+fa-icon{
+  font-size:larger;
+}
+
+mat-sidenav-container{
+  height: 100%;
+  background-color: $pink-background;
+  mat-sidenav{
+    width:18rem;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+    mat-nav-list{
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+  mat-sidenav-content{
+    .nav-text{
+      font-size:18px;
+    }
+    #heart-icon{
+      transition: color 0.3s ease-in-out;
+      color: black;
+      &:hover{
+        color:#f61808;
+      }
+    }
+    #cart-icon{
+      color: black;
+      transition: color 0.3s ease-in-out;
+      &:hover{
+        color:#ffd700;
+      }
+    }
+  }
+}
+
+
+.hidden{
+  display:none;
+}

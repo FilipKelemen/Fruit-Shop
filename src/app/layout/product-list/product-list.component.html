@@ -1,0 +1,24 @@
+<div class="row" *ngIf="products$ | async as products">
+  <div *ngFor="let product of products" class="col-xl-3 col-md-6 col-sm-12 col-xs-12">
+  <div class="product" id="{{product.product_id}}" @fade>
+    <div class="product-top">
+      <img class="product-image" src="{{product.image}}" alt="One tasty {{product.name}}">
+      <div class="overlay">
+        <button routerLinkActive="active current" type="button" class="btn btn-secondary" title="Quick Shop"><a [routerLink]="['/product-detail-page',product.product_id]"><fa-icon [icon]="faEye"></fa-icon></a></button>
+        <button type="button" class="btn btn-secondary" title="Add to Wishlist"><fa-icon [icon]="faHeart"></fa-icon></button>
+        <button (click)="onCartButton(product)" type="button" class="btn btn-secondary add-to-cart-button" title="Add to Cart"><fa-icon [icon]="faShoppingCart"></fa-icon></button>
+      </div>
+    </div>
+    <div class="product-bottom text-center">
+      <div class="stars" data-rating="0">
+        <fa-icon [icon]="faStar"></fa-icon>
+        <fa-icon [icon]="faStar"></fa-icon>
+        <fa-icon [icon]="faStar"></fa-icon>
+        <fa-icon [icon]="faStar"></fa-icon>
+        <fa-icon [icon]="faStar"></fa-icon>
+      </div>
+      <h3 class="product-name">{{product.name}}</h3>
+      <h5 class="product-price">{{product.price.formattedPrice}}</h5>
+    </div>
+  </div>
+  </div>

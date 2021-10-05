@@ -1,0 +1,53 @@
+#text-and-slider-container{
+  // border: 1px solid black;
+  height:350vh;
+  #sticky-text{
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+    height: 100vh;
+    h2,h3{
+      color:white;
+    }
+    h2{
+      font-family: pluto;
+      font-size: 0.4em;
+      padding-right: 0.7em;
+    }
+    h3{
+      font-size: 0.25em;
+      padding-right: 3em;
+    }
+    button{
+      margin-left:4em;
+      width:5em;
+      height:5em;
+      font-size:0.19em;
+      border:none;
+      border-radius: 50%;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+      color:rgb(153, 153, 153);
+      font-weight: 500;
+      transition:0.5s;
+      background: rgb(255,226,179);
+      background: -moz-radial-gradient(circle, rgba(255,226,179,1) 13%, rgba(233,163,148,1) 100%);
+      background: -webkit-radial-gradient(circle, rgba(255,226,179,1) 13%, rgba(233,163,148,1) 100%);
+      background: radial-gradient(circle, rgba(255,226,179,1) 13%, rgba(233,163,148,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffe2b3",endColorstr="#e9a394",GradientType=1);
+      background-size: 200% auto;
+      &:hover {
+        background-position: right center;
+      }
+    }
+  }
+  #slider{
+    img{
+      width:3.4em;
+      border-radius: 4%;
+    }
+  }
+}
+
+.spacer{
+  height:2000px;
+}

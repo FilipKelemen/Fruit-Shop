@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+h1{
+  color: $pink-background;
+  font-size: 50px;
+  font-weight: 600;
+}
+mat-icon{
+  color:gray;
+}
+#password-suffixes{
+  display: inline-flex;
+  align-items: center;
+}
+.check_circle{
+  color:#28a745;
+}
+h5{
+  color:gray;
+}
+#sign-up-button{
+  color:white;
+  background-color: green;
+}

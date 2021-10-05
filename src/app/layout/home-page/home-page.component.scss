@@ -1,0 +1,16 @@
+#wrapper-for-font-size{
+  font-size: calc(60px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));
+}
+#title-and-presentation-image-container{
+  height: 100vh;
+  width: 100%;
+}
+.spacer{
+  height:40%;
+}
+
+@media only screen and (max-width: 767px) {
+  #title-and-presentation-image-container{
+    height: auto !important;
+  }
+}

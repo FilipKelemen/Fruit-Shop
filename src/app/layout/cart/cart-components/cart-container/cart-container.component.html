@@ -1,0 +1,28 @@
+  <div class="d-flex flex-column col-xl-9 col-md-11 col-sm-11 col-11" id="cart-frame">
+    <div class="d-flex align-items-center justify-content-between" id="cart-title">
+      <h2>Shopping Cart</h2>
+     <fa-icon
+      (click)="addedClass=!addedClass"
+      [ngClass]="addedClass ? 'roll-out-blurred-left' :'' "
+      [icon]="faLemon"
+      title="Lemon"
+      id="fa-lemon">
+    </fa-icon>
+    </div>  
+    <ng-container *ngIf="cart$ | async as cart">
+    <div id="all-cart-products-container">
+      <app-cart-item *ngFor="let item of cart.cart_entries" [cartItem]="item"></app-cart-item>
+    </div> 
+    <div class="d-flex align-items-center justify-content-center" id="nothing-in-cart" *ngIf="cart.cart_entries.length === 0">
+      There's nothing in your cart atm... But don't worry, you can change that!
+    </div>
+    <div class="cart-element d-flex align-items-center">
+      <div class="d-flex w-100 justify-content-between align-items-center" id="cart-total">
+        <h2 id="total-product-text">Total</h2>
+        <h4 id="total-product-price">{{cart.formatted_total}}</h4>
+      </div>
+    </div>
+    </ng-container>
+  </div>
+  
+

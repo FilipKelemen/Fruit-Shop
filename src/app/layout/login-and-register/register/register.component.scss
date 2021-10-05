@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+h1{
+  color: $pink-background;
+  font-size: 50px;
+  font-weight: 600;
+}
+mat-icon{
+  color:gray;
+}
+mat-form-field{
+  margin-top: calc(2rem - 0.7vh);
+}
+#password-suffixes{
+  display: inline-flex;
+  align-items: center;
+}
+.check_circle{
+  color:#28a745;
+}
+h5{
+  color:gray;
+}
+#login-button{
+  color:white;
+  background-color: green;
+}

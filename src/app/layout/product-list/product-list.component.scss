@@ -1,0 +1,59 @@
+.product{
+  transform:scale(0.9);
+  background:rgba(255,255,255,0.7);
+  padding-top:10px;
+  padding-bottom:10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .product-top{
+    display: flex;
+    align-items: center;
+    position:relative;
+    margin-top:15%;
+    margin-bottom:15%;
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:80%;
+      height:40vh;
+      object-fit: cover;
+      object-position: center;
+    }
+    .overlay{
+      display:flex;
+      flex-direction: column;
+      margin-top:1vh;
+      margin-bottom: 1vh;
+      text-align:center;
+      justify-content: space-evenly;
+      position:absolute;
+      display:block;
+      opacity:0;
+      margin-left:1vw;
+      width: 70px;
+      transition:0.7s ease-in-out;
+      fa-icon {
+        background-color: wheat;
+        color:rgb(36, 34, 34);
+        cursor:pointer;
+        font-size:2rem;
+        height:3rem;
+        width:3.5rem;
+        margin:2%;
+        padding:0.2rem;
+      }
+      .btn{
+        background-color: black;
+        margin-top:1rem;
+        margin-bottom:1rem;
+      }
+    }
+    &:hover .overlay{
+      opacity:1;
+      margin-left:10%;
+    }
+  }
+  .product-bottom h5{
+    font-weight: bold;
+  }
+}

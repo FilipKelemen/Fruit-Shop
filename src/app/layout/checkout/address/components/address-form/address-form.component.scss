@@ -1,0 +1,26 @@
+@import '../../../../../../styles.scss';
+// *{
+//   font-size: calc(1.1rem + 0.3vw);
+// }
+h1{
+  font-size: calc(1.5rem + 2.5vw);
+  color: $pink-background;
+}
+
+mat-grid-list{
+  height:100%;
+  mat-form-field{
+    width:90%;
+    mat-icon{
+      transition: color ease-in-out 0.3s;
+      // -----------------------------------------
+      &.invalid{
+        color:gray;
+      }
+      &.valid{
+        color: #ffd700,
+      }
+      //----------------------------------------
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../../styles.scss';
+
+*{
+  font-size: calc(0.6rem + 1vw);
+  // background-color: white;
+}
+.container{
+    mat-form-field{
+      // padding-top:1.34375em;  //mat form field has a padding bottom the same size, I m centering the form control this way
+      width: 100%;
+    }
+    h1{
+      font-size:2.1em;
+      color: $pink-background;
+      font-weight: 590;
+      margin-bottom: 0.3em;
+    }
+    mat-radio-group{
+      width: 100%;
+      background-color: white;
+      & :first-child{
+        border-top: 1px solid gray;
+      }
+      mat-radio-button{
+        width: 100%;
+        padding:0.8em;
+        border-bottom: 1px solid gray;
+      }
+      margin-bottom: 2rem;
+  }
+  button{
+    font-size: larger;
+    margin-bottom: 4rem;
+  }
+}
+
+
+
+
+

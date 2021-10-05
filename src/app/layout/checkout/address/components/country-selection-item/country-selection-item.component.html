@@ -1,0 +1,8 @@
+<div *ngIf="countryItem" class="row align-items-center" (click)="getCounties(countryItem.name)">
+  <div class="col-6">
+    <img [src]="countryItem.flag">
+  </div>
+  <div class="col-6">
+    {{countryItem.name}}
+  </div>
+</div>

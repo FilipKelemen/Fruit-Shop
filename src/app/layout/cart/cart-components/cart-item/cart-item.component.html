@@ -1,0 +1,23 @@
+<div class="cart-element row align-items-center " id=""> 
+  <div class="cart-buttons cart-item-division col-md-2 col-sm-2 col-2">
+    <fa-icon (click)="removeItem()" class="fas remove-button" [icon] = "faTimesCircle"></fa-icon>
+    <fa-icon class="fas wishlist-button" [icon] = "faHeart"></fa-icon>
+  </div>
+  <div class="cart-image cart-item-division col-md-3 col-sm-4 col-4">
+    <img src="{{cartItem.product.image}}">
+  </div>
+  <div class="cart-text flex-column justify-items-end cart-item-division d-none d-md-block col-md-3 col-xs-3">
+    <h2>{{cartItem.product.name}}</h2>
+    <h2>{{cartItem.product.description}}</h2>
+  </div>
+  <div class="cart-item-division col-md-2 col-sm-3 col-3">
+  <div class="cart-quantity w-100 d-flex justify-content-center">
+    <button (click)="subtractOneFromQuantity()" class="minus-button" type="button"><fa-icon [icon] = "faMinusSquare"></fa-icon></button>
+    <input class="product-quantity" type="text" min="1" name="quantity" value="{{cartItem.quantity}}">
+    <button (click)="addOneToQuantity()" class="plus-button" type="button"><fa-icon [icon] = "faPlusSquare"></fa-icon></button>
+  </div>
+  </div>
+  <div class="cart-price cart-item-division col-md-2 col-sm-3 col-3">
+    <h4 class="product-price">{{cartItem.product.price.formattedPrice}}X{{cartItem.quantity}}</h4>
+  </div>
+</div>

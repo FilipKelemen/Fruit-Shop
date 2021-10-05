@@ -1,0 +1,17 @@
+*{
+  padding:0;
+  margin:0;
+}
+button{
+  padding:0;
+  color:gray;
+  border-bottom:2px solid gray;
+  border-radius: 0;
+  transition: color 0.2s ease-in-out;
+  &:active{
+    color:black;
+  }
+}
+mat-card{
+  font-family: sans-serif;
+}

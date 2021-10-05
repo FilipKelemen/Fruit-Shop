@@ -1,0 +1,34 @@
+<ng-container [formGroup]="paymentForm">
+  <div formGroupName="cardDetails">
+      <input type="hidden" formControlName="$key">
+      <mat-form-field appearance="standard" class="w-100">
+        <mat-label>Name</mat-label>
+        <input type="text" formControlName="ownerName" placeholder="Your name" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="standard" class="w-100">
+        <mat-label>Number</mat-label>
+        <input type="text" formControlName="number" placeholder="Your card number" matInput>
+      </mat-form-field>
+      <div class="d-flex w-100 justify-content-between align-items-end">
+        <mat-form-field appearance="standard" class="w-25">
+          <mat-label>CCV2</mat-label>
+          <input type="text" formControlName="ccv2" placeholder="Your CCV2" matInput>
+        </mat-form-field>
+        <div class="w-50 expiration-date">
+          <mat-icon class="w-100 text-center">event</mat-icon>
+          <mat-form-field id="expirationMonth-field" appearance="standard" class="w-50">
+            <mat-label>Month</mat-label>
+            <mat-select formControlName="expirationMonth">
+              <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="standard" class="w-50">
+            <mat-label>Year</mat-label>
+            <mat-select formControlName="expirationYear">
+              <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+  </div>
+</ng-container>

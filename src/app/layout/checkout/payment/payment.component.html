@@ -1,0 +1,27 @@
+<form [formGroup]="paymentForm">
+  <input type="hidden" formControlName="$key">
+  <h1>Payment Method</h1>
+      <mat-radio-group formControlName="paymentMethod" class="d-flex flex-column align-items-start">
+        <mat-radio-button value="Card">
+          <div class="radio-content d-flex align-items-center w-100">
+            <mat-icon>credit_card</mat-icon>    <div>Card</div>
+          </div>
+        </mat-radio-button>
+        <ng-container *ngIf="paymentForm.controls['paymentMethod'].value == 'Card'">
+          <div class="container col-md-8 col-sm-11">
+              <app-card-form class="w-100"></app-card-form>
+          </div>
+        </ng-container>
+        <mat-radio-button value="Bank Transfer">
+          <div class="radio-content d-flex align-items-center w-100">
+            <mat-icon>account_balance</mat-icon>    <div>Bank Transfer</div>
+          </div>
+        </mat-radio-button>
+        <mat-radio-button value="Cash On Delivery">
+          <div class="radio-content d-flex align-items-center w-100">
+            <mat-icon>local_atm</mat-icon>    <div>Cash on Delivery</div>
+          </div>
+        </mat-radio-button>
+      </mat-radio-group>
+</form>
+<app-billing-address-review></app-billing-address-review>
