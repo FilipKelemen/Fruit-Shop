@@ -1,13 +1,20 @@
-<div class="container-fluid">
+<div class="container-fluid" id="wrapper-for-font-size">
   <h1 class="text-center">{{productTargeted.name}}</h1>
-  <div class="col-10"id="product-block">
+  <div class="row">
+    <app-image-slider [imageLink] ="productTargeted.image"
+      class="col-lg-9 col-md-12 col-sm-12 col-12"
+    ></app-image-slider>
+    <app-product-details
+      class="col-lg-3 col-md-12 col-sm-12 col-12"
+    ></app-product-details>
+  </div>
+</div>
+
+  <!-- <div class="col-10"id="product-block">
     <div class="row">
-      <div class="image-container col-6">
-        <img src="{{productTargeted.image}}"> 
-      </div>
       <div class="description-container col-6">
         {{productTargeted.description}}
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
+

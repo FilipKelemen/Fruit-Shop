@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductDTO } from 'src/app/models/models';
 import { ProductFacade } from 'src/app/services/product.facade';
-import { take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -11,10 +12,12 @@ import { take} from 'rxjs/operators';
 })
 export class ProductDetailPageComponent implements OnInit {
 
+  paramMapSubscription!: Subscription;
   constructor(private route:ActivatedRoute,private productService:ProductFacade) { }
   productTargeted!: ProductDTO;
 
   ngOnInit(): void {
+    this.paramMapSubscription =
     this.route.paramMap.subscribe(paramMap => {
       let id: number = Number(paramMap.get('id'));
       this.productService.products$.pipe(
@@ -26,6 +29,9 @@ export class ProductDetailPageComponent implements OnInit {
         console.log('Error is '+JSON.stringify(error));
       });
   })
+  }
+  ngOnDestroy(): void {
+    this.paramMapSubscription.unsubscribe()
   }
   
 

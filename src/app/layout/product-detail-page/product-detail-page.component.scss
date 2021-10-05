@@ -1,28 +1,9 @@
 h1{
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  font-size:0.6em;
   color:white;
 }
-div{
-  margin:0;
-  padding:0;
-}
-#product-block{
-  margin:auto;
-  .image-container{
-    height:70vh;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    img{
-      width:80%;
-      height:80%;
-      // object-fit: cover;
-
-    }
-  }
-  .description-container{
-    background-color: white;
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
+#wrapper-for-font-size{
+  font-size: calc(60px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));
 }
