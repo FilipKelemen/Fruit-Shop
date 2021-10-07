@@ -1,4 +1,12 @@
 <mat-card class="d-flex justify-content-end align-items-center">
-  <img src="{{imageLink}}" alt="something"> 
+  <carousel
+    objectFit='cover'
+    [cellsToShow]="(numberOfImagesShown | async)!"
+    [transitionDuration]=400
+    [dots]=true
+    [counter]=true
+    [borderRadius]=10
+    [images]="images">
+  </carousel>
 </mat-card>
 

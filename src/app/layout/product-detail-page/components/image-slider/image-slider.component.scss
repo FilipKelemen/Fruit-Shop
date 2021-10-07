@@ -3,18 +3,19 @@ mat-card{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   height: 4.5em;
   padding: 0.1em;
-  img{
-    height: 100%;
-    width: 70%;
-    object-fit: cover;
+  carousel {
+    width: 100%;
+    height: 100% !important;
   }
 }
 
 @media only screen and (max-width: 992px) {
   mat-card {
     height: 85vh;
-    img {
-      width: 100% !important;
-    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  mat-card {
+    height: 60vh;
   }
 }

@@ -1,4 +1,3 @@
-// It has to be made the same with the models in the node api manually
 
 export interface ProductDTO {
   product_id: number;
@@ -7,7 +6,7 @@ export interface ProductDTO {
   name: string;
   image:string;
   price: PriceDTO;
-  description?: string;
+  description: string;
   createdAt?: Date;
   updatedAt?: Date;
 };

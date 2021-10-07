@@ -1,0 +1,31 @@
+mat-card {
+  height: 4.5em;
+  padding: 0.1em;
+  #product-name {
+    margin-top: 0.2em;
+    color:black;
+    font-size: 0.3em;
+  }
+  #product-description {
+    color:#a3a3a3;
+    font-size: 0.2em;
+  }
+  #wishlist-and-add-to-cart-buttons-container {
+    margin-top: 0.7em;
+  }
+  #additional-information-container{
+    mat-icon {
+      margin-right: 0.3em;
+    }
+    font-size: 0.15em;
+    #free-returns{
+      color:#a3a3a3;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  mat-card {
+    height: 40vh;
+  }
+}

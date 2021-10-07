@@ -1,13 +1,20 @@
 <div class="container-fluid" id="wrapper-for-font-size">
-  <!-- <h1 class="text-center">{{productTargeted.name}}</h1> -->
   <div class="row">
-    <app-image-slider [imageLink] ="productTargeted.image"
-      class="col-lg-9 col-md-12 col-sm-12 col-12 mt-4"
-    ></app-image-slider>
-    <app-product-details
-      class="col-lg-3 col-md-12 col-sm-12 col-12"
-    ></app-product-details>
+    <ng-container *ngIf="product$ | async as product; else loading">
+        <app-image-slider [imageLink] ="product.image"
+          class="col-lg-9 col-md-12 col-sm-12 col-12 mt-4"
+        ></app-image-slider>
+        <app-product-details [productName]="product.name"
+          [productDescription]="product.description"
+          [product_id]="product.product_id"
+          [productPrice]="product.price"
+          class="col-lg-3 col-md-12 col-sm-12 col-12 mt-4"
+        ></app-product-details>
+    </ng-container>
   </div>
+    <ng-template #loading>  
+      <app-loading class="w-100"></app-loading>
+    </ng-template>
 </div>
 
   <!-- <div class="col-10"id="product-block">
