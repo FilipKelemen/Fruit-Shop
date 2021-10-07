@@ -1,3 +1,4 @@
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
@@ -7,13 +8,19 @@ import { FormsService } from 'src/app/services/forms/forms.service';
 @Component({
   selector: 'app-checkout-navbar',
   templateUrl: './checkout-navbar.component.html',
-  styleUrls: ['./checkout-navbar.component.scss']
+  styleUrls: ['./checkout-navbar.component.scss'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class CheckoutNavbarComponent {
 
   @ViewChild('stepper') private myStepper!: MatStepper;
 
-  constructor(private formsService: FormsService, private cartFacade: CartFacade) { }
+  // stepperOrientation: Observable<StepperOrientation>;
+
+  constructor(private formsService: FormsService, private cartFacade: CartFacade) {
+               }
 
   deliveryForm: FormGroup = this.formsService.deliveryForm;
   deliveryAddressForm: FormGroup = this.formsService.deliveryAddressForm;
@@ -35,5 +42,5 @@ export class CheckoutNavbarComponent {
                         this.myStepper);
     // this.cartFacade.testCart();
   }
-
+  
 }

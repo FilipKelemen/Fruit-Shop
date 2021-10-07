@@ -1,34 +1,52 @@
-<mat-stepper #stepper orientation="horizontal">
-  <mat-step [stepControl]="deliveryForm">
-    <ng-template matStepLabel>Delivery</ng-template>
+<mat-stepper linear="isLinear" #stepper orientation="horizontal">
+  <mat-step [stepControl]="deliveryForm" state="local_shipping">
+    <ng-template matStepLabel class="d-lg-none">Delivery Service</ng-template>
     <ng-template matStepContent>
       <app-delivery>
       </app-delivery>
-      <button mat-button matStepperNext type="button">Next</button>
-    </ng-template>
-  </mat-step>
-  <mat-step [stepControl]="deliveryAddressForm">
-    <ng-template matStepLabel>Address</ng-template>
-    <ng-template matStepContent>
-      <app-address></app-address>
-      <button mat-button matStepperNext type="button">Next</button>
-    </ng-template>
-  </mat-step>
-  <mat-step [stepControl]="billingAddressForm">
-    <ng-template matStepLabel>Payment</ng-template>
-    <ng-template matStepContent>
-      <app-payment></app-payment>
-      <div class="w-100">
-        <button mat-button matStepperPrevious type="button">Back</button>
-        <button mat-button (click)="submitAllForms()" type="button">Next</button>
+      <div class="w-100 d-flex mb-2 justify-content-center">
+        <button mat-raised-button matStepperNext type="button">Next</button>
       </div>
     </ng-template>
   </mat-step>
-  <mat-step>
+  <mat-step [stepControl]="deliveryAddressForm" state="home">
+    <ng-template matStepLabel>Delivery Address</ng-template>
+    <ng-template matStepContent>
+      <app-address></app-address>
+      <div class="w-100 d-flex mb-2 justify-content-around">
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
+      </div>
+    </ng-template>
+  </mat-step>
+  <mat-step [stepControl]="billingAddressForm" state="attach_money">
+    <ng-template matStepLabel>Payment</ng-template>
+    <ng-template matStepContent>
+      <app-payment></app-payment>
+      <div class="w-100 d-flex mb-2 justify-content-around">
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button (click)="submitAllForms()" type="button">Next</button>
+      </div>
+    </ng-template>
+  </mat-step>
+  <mat-step state="text_snippet">
     <ng-template matStepLabel>Review</ng-template>
     <ng-template matStepContent>
       <app-review ></app-review>
-    <button mat-button matStepperPrevious type="button">Back</button>
+      <button mat-raised-button matStepperPrevious type="button">Back</button>
     </ng-template>
   </mat-step>
 </mat-stepper>
+
+<ng-template matStepperIcon="local_shipping">
+  <mat-icon>local_shipping</mat-icon>
+</ng-template>
+<ng-template matStepperIcon="attach_money">
+  <mat-icon>attach_money</mat-icon>
+</ng-template>
+<ng-template matStepperIcon="home">
+  <mat-icon >home</mat-icon>
+</ng-template>
+<ng-template matStepperIcon="text_snippet">
+  <mat-icon >text_snippet</mat-icon>
+</ng-template>

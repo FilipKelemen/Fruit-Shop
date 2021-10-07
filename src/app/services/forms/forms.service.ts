@@ -1,4 +1,3 @@
-import { group } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -31,8 +30,8 @@ export class FormsService {
   constructor() { }
   deliveryForm: FormGroup = new FormGroup({
     $key: new FormControl(null),
-    countryToBeDelivered: new FormControl('0', Validators.required),
-    deliveryServiceId: new FormControl('0', Validators.required)
+    countryToBeDelivered: new FormControl('', Validators.required),
+    deliveryServiceId: new FormControl('', Validators.required)
   }, Validators.required);
   deliveryAddressForm: FormGroup = new FormGroup({
     $key: new FormControl(null),

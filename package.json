@@ -27,7 +27,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@mdi/angular-material": "^5.9.55",
-    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^4.5.0",
     "luxon": "^2.0.2",
     "material-icons": "^1.2.0",
