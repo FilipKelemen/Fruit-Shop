@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run 'ng serve --proxy-config proxy.conf.json' in order to connect to the node-api. 
+The node-api is a folder. You should access it in a split terminal via 'cd node-api' then run the server with 'npm run start'.
+The Angular App runs on localhost:4200 and the node-api runs on localhost:3000.
 
 ## Code scaffolding
 
